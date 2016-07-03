@@ -1,4 +1,4 @@
-m s charset "utf-8"
-m s title "Hello test!"
+m s charset="utf-8"
+m s title="Hello test!"
 
 t "Hello World!"
