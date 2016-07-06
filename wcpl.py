@@ -17,14 +17,18 @@ def wcpl(data, env):
 		commands = line.split(' ')
 		if commands[0] == 'm':
 			meta_type = commands[1]
+
+			# m <type> <var>=<val>
+			# val = l(type) + 1 + l(var) + 1
 			meta_command = (''.join(commands[2:])).split('=')
 			meta_var = meta_command[0]
 			meta_val = meta_command[1]
 
-			print(meta_command)
 			if meta_type == 's':
 				# read string
-				meta_val = meta_val[1:-1]
+				# meta_val = meta_val[1:-1]
+				env['meta'][meta_var] = meta_val
+			elif meta_type == 'r':
 				env['meta'][meta_var] = meta_val
 
 			env['_head'] += '<meta %s=%s>' % (meta_var, meta_val)
