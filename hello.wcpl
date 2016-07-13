@@ -1,4 +1,6 @@
-m s charset="utf-8"
+xm s charset="utf-8"
 m s title="Hello test!"
 
 t "Hello World!"
+0 Hello World from compiled WCPL!
+l Google! https://www.google.com

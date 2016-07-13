@@ -4,7 +4,7 @@ import sys
 argv = sys.argv
 
 WCPL_VERSION = '0.0.1'
-WCPL_BUILD = 1
+WCPL_BUILD = 2
 
 def wcpl(data, env):
 	compiled = []
@@ -32,8 +32,14 @@ def wcpl(data, env):
 				env['meta'][meta_var] = meta_val
 
 			env['_head'] += '<meta %s=%s>' % (meta_var, meta_val)
-		if commands[0] == 't':
-			compiled.append("%s" % ''.join(commands[1:]))
+		elif commands[0] == '0':
+			compiled.append("<p>%s</p>" % ' '.join(commands[1:]))
+		elif commands[0] == 'l':
+			text = commands[1]
+			linkv = commands[2]
+			compiled.append("<a href=\"%s\">%s</a>" % (linkv, text))
+
+		# elif commands[0] == ''
 
 	res = ''
 
@@ -49,7 +55,6 @@ def main():
 		env = {
 			"meta": {
 				"charset": "utf-8",
-				#"title": "default"
 			},
 			"wcpl": {
 				"version": WCPL_VERSION,
